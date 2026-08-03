@@ -83,7 +83,7 @@ export const siteContent = {
     title: "A Letter To You",
     paragraphs: [
       "My dearest Ruth Joy,",
-      "As you celebrate another year of life, I want to take a moment to celebrate YOU. We found each other online, but what we have has never felt small or distant to me. You brought colour to my world, laughter to my days, and a love I am grateful for every day.",
+      "As you celebrate another year of life, I want to take a moment to celebrate YOU. We found each other, but what we have has never felt small or distant to me. You brought colour to my world, laughter to my days, and a love I am grateful for every day.",
       "You are my favourite conversation, my safe space, and the person I cannot wait to meet properly. I love your heart, your dreams, your kindness, and the way you make ordinary days feel special even from far away.",
       "Today is all about you. I hope this new year brings you joy in every corner, and I cannot wait to make our first in-person memories and all the ones that follow.",
       "Happy Birthday, my Whimssy. Our story is only beginning.",
