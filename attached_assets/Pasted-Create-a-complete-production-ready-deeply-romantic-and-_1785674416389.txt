@@ -1,0 +1,264 @@
+Create a complete, production-ready, deeply romantic and very lively birthday website for my girlfriend.
+
+PERSONAL DETAILS
+
+* Her name: Ruth Joy
+* Her nickname: Whimssy
+* Birthday: 5 August
+* The website is a loving birthday surprise from her boyfriend.
+* Use affectionate wording such as “My Whimssy,” “My Ruth Joy,” and “The love of my life.”
+* Do not use generic lorem ipsum text.
+
+DESIGN DIRECTION
+
+Create a luxurious, cinematic romantic theme combining:
+
+* Deep burgundy, midnight black, rose pink, warm ivory and elegant gold
+* Soft glowing lights, stars, floating rose petals and subtle heart particles
+* Premium serif headings with a beautiful handwritten font for romantic accents
+* Glassmorphism cards, soft shadows, gold borders and smooth gradients
+* A polished, mature design—not childish or cartoonish
+* Make every page feel alive without becoming cluttered or slow
+
+Use a fully responsive mobile-first design that looks excellent on phones, tablets and computers.
+
+TECHNOLOGY
+
+Build the website using:
+
+* React
+* TypeScript
+* Vite
+* React Router
+* Framer Motion
+* Lucide icons
+* Clean reusable components
+* CSS or Tailwind CSS
+
+Do not only create a plan. Build the complete working website, run it, test every page and fix all errors.
+
+PAGES AND FEATURES
+
+1. ROMANTIC INTRO
+
+Before showing the main website, display a beautiful animated gift box or sealed love letter with:
+
+“Something beautiful is waiting for you, Whimssy.”
+
+Add an “Open Your Surprise” button. When clicked:
+
+* Open the gift with a smooth animation
+* Release glowing hearts, rose petals and sparkles
+* Play a short celebration animation
+* Transition into the homepage
+
+2. HOME PAGE
+
+Create a cinematic hero section containing:
+
+* “Happy Birthday, Ruth Joy”
+* “To My Beautiful Whimssy”
+* A romantic supporting message
+* An animated “Begin Our Story” button
+* A live countdown to 5 August using the Africa/Nairobi timezone
+* On 5 August, replace the countdown with “Today Is Your Day, My Love!”
+* Trigger elegant confetti and floating hearts on her birthday
+* Include stylish photo placeholders that I can replace later
+
+Suggested message:
+
+“Today, the world celebrates the day it received someone truly special. But for me, it is the day the woman who makes my life brighter, warmer and more meaningful was born.”
+
+3. OUR STORY PAGE
+
+Create a romantic animated timeline with editable placeholder milestones:
+
+* The Day We Met
+* The Moment I Knew You Were Special
+* Our Favourite Memory
+* The Journey We Are Building
+* Forever Still Ahead
+
+Each milestone should have space for:
+
+* A date
+* A photograph
+* A heading
+* A short personal memory
+
+Reveal the milestones smoothly as the user scrolls.
+
+4. MEMORIES PAGE
+
+Create an attractive photo gallery containing elegant placeholders because I will upload our photos later.
+
+Include:
+
+* Masonry-style photo layout
+* Hover effects
+* Smooth image opening animation
+* Fullscreen lightbox
+* Previous and next controls
+* Optional captions and dates
+* Mobile swipe support
+* A few placeholders labelled “Our Memory Goes Here”
+
+Keep all image information in one simple data file so I can replace photos easily.
+
+5. WHY I LOVE YOU PAGE
+
+Create animated romantic cards showing reasons I love Ruth Joy:
+
+* Your beautiful heart
+* Your smile
+* The peace you bring into my life
+* Your strength
+* Your kindness
+* The way you understand me
+* The happiness I feel around you
+* The future I see with you
+
+Make the cards interactive. They can flip, expand or glow when clicked. Include a final card reading:
+
+“And beyond every reason I can explain, I love you simply because you are you.”
+
+6. LOVE LETTER PAGE
+
+Design this page like an elegant handwritten love letter opening from an envelope.
+
+Use this message:
+
+“My Dearest Whimssy,
+
+On your birthday, I want you to know how deeply grateful I am that you came into my life. Loving you has given ordinary days a special meaning and beautiful moments a place in my heart forever.
+
+You are more than my girlfriend. You are my happiness, my peace, my favourite person and the woman I dream of building a future with. Your smile makes difficult days lighter, and your presence makes life feel complete.
+
+As you begin another year, I pray that happiness follows you, your dreams move closer and your heart always remembers how deeply it is loved. I may not always find perfect words, but my heart will always choose you.
+
+Happy Birthday, Ruth Joy. Happy Birthday, my Whimssy. I love you today, tomorrow and through every chapter still waiting for us.
+
+Forever yours.”
+
+Add a handwriting or typewriter reveal effect and a romantic signature area reading “With all my love.”
+
+7. BIRTHDAY WISHES PAGE
+
+Create a celebratory section with:
+
+* An animated birthday cake
+* Flickering candles
+* A “Make a Wish” button
+* When pressed, the candles go out
+* Confetti, stars and hearts appear
+* Display: “May every beautiful wish in your heart come true, Whimssy.”
+* Add a “Celebrate Again” button
+
+8. FOREVER PAGE
+
+Create a romantic finale with an animated night sky, stars and a glowing horizon.
+
+Display:
+
+“This website may have an ending, but my love for you does not.”
+
+Then show:
+
+“Happy Birthday, My Whimssy ❤️”
+
+Include a button reading “Replay Our Love Story” that returns to the opening surprise.
+
+NAVIGATION
+
+Create a beautiful responsive navigation menu containing:
+
+* Home
+* Our Story
+* Memories
+* Why I Love You
+* Love Letter
+* Birthday Wish
+* Forever
+
+On mobile, use an attractive animated menu. Include smooth page transitions and clearly show the active page.
+
+LIVELY ANIMATIONS
+
+Add tasteful, performance-friendly effects:
+
+* Floating rose petals
+* Small glowing hearts
+* Twinkling stars
+* Scroll-reveal animations
+* Animated page transitions
+* Soft parallax backgrounds
+* Button glow and hover animations
+* Gentle 3D photo-card tilting
+* Romantic cursor glow on desktop
+* Occasional sparkles around important text
+* Animated progress indicator showing the current chapter
+
+Do not let the animations obstruct the text. Respect “prefers-reduced-motion” accessibility settings and disable heavy effects on slower mobile devices.
+
+MUSIC
+
+Add a floating romantic music player with:
+
+* Play and pause button
+* Volume control
+* Track title
+* Rotating record animation while playing
+* A clearly labelled placeholder where I can later upload an MP3 file
+
+Do not force music to autoplay with sound. Let Ruth start it by pressing the music button.
+
+EASY CUSTOMIZATION
+
+Create a clearly organised file such as `src/data/siteContent.ts` containing:
+
+* Ruth’s name
+* Nickname
+* Birthday
+* Romantic messages
+* Timeline memories
+* Reasons I love her
+* Photo paths and captions
+* Music file path
+
+I should be able to change the website content without editing the page components.
+
+PHOTO PLACEHOLDERS
+
+Since I will add photographs later:
+
+* Use elegant gradient placeholders for now
+* Do not insert random people or stock couples
+* Create a `public/photos` folder
+* Clearly name the expected files
+* If an image is missing, show a beautiful fallback instead of a broken-image icon
+
+QUALITY REQUIREMENTS
+
+* No broken links, buttons or animations
+* No horizontal scrolling
+* Excellent phone responsiveness
+* Accessible keyboard navigation
+* Strong text contrast
+* Proper headings and image alt text
+* Fast loading and optimised effects
+* Reusable components and clean code
+* Custom favicon using a heart and the initials “R + W”
+* Romantic page title and social-sharing description
+* Beautiful loading screen
+* Smooth scroll-to-top button
+* Add a hidden small message in the footer: “Made with endless love for Ruth Joy.”
+
+Include a README explaining, step by step:
+
+1. How to replace the photo placeholders
+2. How to change memories and messages
+3. How to upload the romantic music
+4. How to change the birthday date
+5. How to run and deploy the website on Replit
+
+After implementing everything, run the website, inspect all pages at desktop and mobile sizes, repair any visual or functional problems, and leave the project ready to publish.

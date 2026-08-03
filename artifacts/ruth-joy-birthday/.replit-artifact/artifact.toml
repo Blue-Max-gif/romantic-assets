@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Ruth Joy Birthday"
+description = "A deeply romantic, cinematic birthday surprise website for Ruth Joy, with an opening love letter, story chapters, memories, birthday wishes, music controls, and a forever finale."
+version = "1.0.0"
+id = "artifacts/ruth-joy-birthday"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 19900
+
+[services.development]
+run = "pnpm --filter @workspace/ruth-joy-birthday run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/ruth-joy-birthday", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/ruth-joy-birthday/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "19900"
+BASE_PATH = "/"
