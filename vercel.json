@@ -1,7 +1,12 @@
 {
-  "buildCommand": "pnpm run build:vercel",
+  "buildCommand": "pnpm -w run build:vercel",
   "outputDirectory": "artifacts/ruth-joy-birthday/dist/public",
   "installCommand": "pnpm install --frozen-lockfile",
   "framework": "vite",
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
 }
