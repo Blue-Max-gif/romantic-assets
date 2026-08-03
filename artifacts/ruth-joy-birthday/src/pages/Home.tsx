@@ -29,7 +29,7 @@ export default function Home() {
             className="relative z-10"
           >
             <FloatingElements />
-            <MusicPlayer autoPlayTriggered={hasOpened} />
+            <MusicPlayer />
             <Navigation />
 
             <div className="flex flex-col gap-0">

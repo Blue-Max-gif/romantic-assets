@@ -8,64 +8,64 @@ export const siteContent = {
     title: "Our Song",
   },
   opening: {
-    title: "For My Whimssy",
+    title: "Something beautiful is waiting for you, Whimssy.",
     buttonText: "Open Your Surprise",
+    lockedMessage: "Your surprise opens on your birthday.",
   },
   hero: {
     nickname: "Whimssy",
     name: "Ruth Joy",
-    subtitle: "The love of my life.",
+    subtitle: "The love of my life, even from miles away.",
     date: "August 5",
   },
   countdown: {
-    // Uses the next occurrence of August 5 relative to current date if passed, or just "August 5"
     targetMonth: 7, // 0-indexed, so 7 is August
     targetDate: 5,
-    message: "Waiting to celebrate you...",
-    birthdayMessage: "Happy Birthday, My Whimssy! 🎂❤️",
+    message: "Counting down to your beautiful day",
+    birthdayMessage: "Today is your day, My Love!",
   },
   story: {
-    title: "Our Journey",
+    title: "Our Beginning",
     milestones: [
       {
         id: 1,
-        date: "The Beginning",
-        title: "When We Met",
-        description: "The day my life changed forever. I remember seeing you and knowing this was the start of something beautiful.",
-        icon: "camera", 
+        date: "Where it began",
+        title: "When We Found Each Other Online",
+        description: "Two people, one unexpected connection, and conversations that made distance feel a little smaller.",
+        icon: "message",
       },
       {
         id: 2,
-        date: "Our First Date",
-        title: "Endless Conversations",
-        description: "Hours felt like minutes. We talked about everything and nothing, and I never wanted the day to end.",
-        icon: "coffee",
-      },
-      {
-        id: 3,
-        date: "The Yes",
-        title: "Making It Official",
-        description: "You said yes to being mine, and suddenly all the love songs made perfect sense.",
+        date: "Every day since",
+        title: "The Conversations That Became Ours",
+        description: "Hours still feel like minutes. Somewhere between the good mornings and late-night talks, you became my favourite person.",
         icon: "heart",
       },
       {
+        id: 3,
+        date: "Soon",
+        title: "Our First Meeting",
+        description: "I cannot wait for the day online becomes in person, and I finally get to stand in front of the woman I already adore.",
+        icon: "sparkle",
+      },
+      {
         id: 4,
-        date: "Today",
-        title: "Growing Together",
-        description: "Every day with you is a gift. You are my greatest adventure and my safest home.",
+        date: "Everything ahead",
+        title: "The Journey We Are Building",
+        description: "Our first hello in person is still ahead of us. So is every memory, every laugh, and every beautiful chapter after it.",
         icon: "star",
       }
     ]
   },
   memories: {
-    title: "Beautiful Moments",
+    title: "Moments Still Ahead",
     photos: [
-      { id: 1, url: "/photos/placeholder-1.jpg", caption: "Our first trip together" },
-      { id: 2, url: "/photos/placeholder-2.jpg", caption: "That amazing dinner date" },
-      { id: 3, url: "/photos/placeholder-3.jpg", caption: "Just us being silly" },
-      { id: 4, url: "/photos/placeholder-4.jpg", caption: "A perfect sunset" },
-      { id: 5, url: "/photos/placeholder-5.jpg", caption: "My favorite smile in the world" },
-      { id: 6, url: "/photos/placeholder-6.jpg", caption: "Unforgettable memories" },
+      { id: 1, url: "/photos/ruth-joy-01.jpg", caption: "A photo of my Whimssy" },
+      { id: 2, url: "/photos/ruth-joy-02.jpg", caption: "A moment I cannot wait to capture" },
+      { id: 3, url: "/photos/ruth-joy-03.jpg", caption: "Our first photo together, soon" },
+      { id: 4, url: "/photos/ruth-joy-04.jpg", caption: "The smile I am waiting to see in person" },
+      { id: 5, url: "/photos/ruth-joy-05.jpg", caption: "A memory waiting for us" },
+      { id: 6, url: "/photos/ruth-joy-06.jpg", caption: "Our story is only beginning" },
     ]
   },
   reasons: {
@@ -83,17 +83,17 @@ export const siteContent = {
     title: "A Letter To You",
     paragraphs: [
       "My dearest Ruth Joy,",
-      "As you celebrate another year of life, I want to take a moment to celebrate YOU. From the moment you walked into my life, everything changed. You brought color to my world, laughter to my days, and a love so deep I didn't know it was possible.",
-      "You are my safe space, my biggest cheerleader, and my best friend. I love your quirks, your dreams, and the way your nose crinkles when you laugh. I love the person I am when I'm with you.",
-      "Today is all about you. I promise to spend today, and every day after, making sure you know just how incredibly loved, cherished, and special you are.",
-      "Happy Birthday, my Whimssy. Here's to a lifetime of birthdays together.",
+      "As you celebrate another year of life, I want to take a moment to celebrate YOU. We found each other online, but what we have has never felt small or distant to me. You brought colour to my world, laughter to my days, and a love I am grateful for every day.",
+      "You are my favourite conversation, my safe space, and the person I cannot wait to meet properly. I love your heart, your dreams, your kindness, and the way you make ordinary days feel special even from far away.",
+      "Today is all about you. I hope this new year brings you joy in every corner, and I cannot wait to make our first in-person memories and all the ones that follow.",
+      "Happy Birthday, my Whimssy. Our story is only beginning.",
       "Forever Yours,"
     ]
   },
   wish: {
     title: "Make a Wish",
     instruction: "Tap the cake to blow out the candles and make your birthday wish.",
-    wishedMessage: "May all your dreams come true, my love! ✨"
+    wishedMessage: "May every beautiful wish in your heart come true, Whimssy."
   },
   footer: {
     text: "Made with all my love for Ruth Joy.",

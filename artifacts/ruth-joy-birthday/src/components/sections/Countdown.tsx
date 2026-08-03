@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { siteContent } from '@/data/siteContent';
+import { getBirthdayCountdown, birthdayTimeZoneLabel } from '@/lib/birthday';
 
 export function Countdown() {
   const [timeLeft, setTimeLeft] = useState({
@@ -13,38 +14,9 @@ export function Countdown() {
 
   useEffect(() => {
     const calculateTimeLeft = () => {
-      const now = new Date();
-      const currentYear = now.getFullYear();
-      
-      const { targetMonth, targetDate } = siteContent.countdown;
-      
-      let birthday = new Date(currentYear, targetMonth, targetDate);
-      
-      // If birthday has passed this year and we're not currently on the day, 
-      // look forward to next year's birthday
-      const isToday = now.getMonth() === targetMonth && now.getDate() === targetDate;
-      
-      if (isToday) {
-        setIsBirthday(true);
-        return;
-      } else {
-        setIsBirthday(false);
-      }
-      
-      if (now > birthday) {
-        birthday = new Date(currentYear + 1, targetMonth, targetDate);
-      }
-      
-      const difference = birthday.getTime() - now.getTime();
-      
-      if (difference > 0) {
-        setTimeLeft({
-          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-          minutes: Math.floor((difference / 1000 / 60) % 60),
-          seconds: Math.floor((difference / 1000) % 60),
-        });
-      }
+      const next = getBirthdayCountdown();
+      setIsBirthday(next.isBirthday);
+      setTimeLeft(next);
     };
 
     calculateTimeLeft();
@@ -93,7 +65,7 @@ export function Countdown() {
           transition={{ duration: 0.8 }}
         >
           <p className="font-serif text-muted-foreground uppercase tracking-widest text-sm mb-8">
-            {siteContent.countdown.message}
+            {siteContent.countdown.message} · {birthdayTimeZoneLabel}
           </p>
           
           <div className="flex flex-wrap justify-center gap-6 md:gap-12">

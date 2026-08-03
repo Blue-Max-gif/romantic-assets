@@ -10,15 +10,15 @@ You do not need to edit the UI components to change the copy.
 ## Customizing Media
 
 ### Photos
-Replace the placeholders in `public/photos/` with your own images:
-- `placeholder-1.jpg`
-- `placeholder-2.jpg`
-- `placeholder-3.jpg`
-- `placeholder-4.jpg`
-- `placeholder-5.jpg`
-- `placeholder-6.jpg`
+Add your images to `public/photos/` and use the existing filenames, or change the paths in `src/data/siteContent.ts`:
+- `ruth-joy-01.jpg`
+- `ruth-joy-02.jpg`
+- `ruth-joy-03.jpg`
+- `ruth-joy-04.jpg`
+- `ruth-joy-05.jpg`
+- `ruth-joy-06.jpg`
 
-*Tip: For the best visual experience, use high-quality portrait/vertical images.*
+The gallery starts with elegant fallbacks because Ruth Joy and her boyfriend have not met in person yet. Replace these files whenever you are ready; no page component changes are needed.
 
 ### Music
 Replace `public/audio/romantic-song.mp3` with your special song. Make sure the filename matches what is set in `src/data/siteContent.ts`.
@@ -34,8 +34,8 @@ npm run dev
 
 ## Deployment
 
-You can deploy this site easily using Replit Deploy (Static deployment is recommended, as this is a frontend-only site), or host it on Vercel/Netlify.
+From the repository root, you can deploy this site to Vercel. The root `vercel.json` already points Vercel at this app's build output:
 ```bash
-npm run build
+pnpm run build:vercel
 ```
-The output will be in the `dist` folder.
+The output will be in `artifacts/ruth-joy-birthday/dist/public`. Replit can still run it with the artifact workflow.

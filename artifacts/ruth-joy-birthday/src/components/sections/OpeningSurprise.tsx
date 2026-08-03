@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { siteContent } from '@/data/siteContent';
-import { Heart, Gift } from 'lucide-react';
+import { Heart, Gift, LockKeyhole } from 'lucide-react';
+import { getBirthdayCountdown, birthdayTimeZoneLabel, type BirthdayCountdown } from '@/lib/birthday';
 
 interface OpeningSurpriseProps {
   onOpen: () => void;
@@ -9,6 +10,14 @@ interface OpeningSurpriseProps {
 
 export function OpeningSurprise({ onOpen }: OpeningSurpriseProps) {
   const [isOpening, setIsOpening] = useState(false);
+  const [countdown, setCountdown] = useState<BirthdayCountdown>(() => getBirthdayCountdown());
+
+  useEffect(() => {
+    const updateCountdown = () => setCountdown(getBirthdayCountdown());
+    updateCountdown();
+    const timer = window.setInterval(updateCountdown, 1000);
+    return () => window.clearInterval(timer);
+  }, []);
 
   const handleOpen = () => {
     setIsOpening(true);
@@ -48,12 +57,12 @@ export function OpeningSurprise({ onOpen }: OpeningSurpriseProps) {
             </motion.div>
 
             <motion.h1 
-              className="font-script text-5xl md:text-7xl text-foreground mb-4 drop-shadow-xl"
+              className="font-script text-4xl sm:text-5xl md:text-7xl text-foreground mb-4 drop-shadow-xl max-w-2xl"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.8 }}
             >
-              {siteContent.opening.title}
+              {countdown.isBirthday ? 'Your surprise is ready, Whimssy.' : siteContent.opening.title}
             </motion.h1>
 
             <motion.p 
@@ -62,24 +71,54 @@ export function OpeningSurprise({ onOpen }: OpeningSurpriseProps) {
               animate={{ opacity: 1 }}
               transition={{ delay: 1, duration: 0.8 }}
             >
-              A special delivery just for you...
+              {countdown.isBirthday
+                ? 'Today, on your birthday, it is finally time to open it.'
+                : `The countdown is on · ${birthdayTimeZoneLabel}`}
             </motion.p>
 
-            <motion.button
-              onClick={handleOpen}
-              className="group relative px-8 py-4 bg-primary text-primary-foreground font-serif tracking-widest uppercase text-sm rounded-full overflow-hidden shadow-[0_0_40px_rgba(161,18,52,0.4)] transition-all hover:shadow-[0_0_60px_rgba(161,18,52,0.6)] hover:scale-105 active:scale-95 focus:outline-none"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.5, duration: 0.8 }}
-            >
-              <span className="relative z-10 flex items-center gap-2">
-                {siteContent.opening.buttonText}
-                <Heart className="w-4 h-4 fill-current group-hover:scale-125 transition-transform" />
-              </span>
-              
-              {/* Shine effect */}
-              <div className="absolute top-0 -left-[100%] w-1/2 h-full bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[-45deg] group-hover:left-[200%] transition-all duration-1000 ease-in-out" />
-            </motion.button>
+            {!countdown.isBirthday ? (
+              <motion.div
+                className="mt-2 flex flex-col items-center gap-5"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.2, duration: 0.8 }}
+              >
+                <div className="grid grid-cols-4 gap-2 sm:gap-3" aria-label="Countdown to the birthday">
+                  {[
+                    ['Days', countdown.days],
+                    ['Hours', countdown.hours],
+                    ['Minutes', countdown.minutes],
+                    ['Seconds', countdown.seconds],
+                  ].map(([label, value]) => (
+                    <div key={label} className="min-w-[64px] rounded-xl border border-primary/20 bg-card/60 px-2 py-3 sm:min-w-[76px]">
+                      <div className="font-serif text-2xl sm:text-3xl text-foreground tabular-nums">
+                        {String(value).padStart(2, '0')}
+                      </div>
+                      <div className="mt-1 text-[9px] uppercase tracking-[0.16em] text-muted-foreground">
+                        {label}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <LockKeyhole className="h-4 w-4 text-primary" />
+                  <span>{siteContent.opening.lockedMessage}</span>
+                </div>
+              </motion.div>
+            ) : (
+              <motion.button
+                onClick={handleOpen}
+                className="group relative mt-2 min-h-14 rounded-full bg-primary px-8 py-4 text-primary-foreground font-serif tracking-widest uppercase text-sm shadow-[0_0_40px_rgba(161,18,52,0.4)] transition-all hover:shadow-[0_0_60px_rgba(161,18,52,0.6)] hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 focus:ring-offset-background"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.2, duration: 0.8 }}
+              >
+                <span className="relative z-10 flex items-center gap-2">
+                  {siteContent.opening.buttonText}
+                  <Heart className="w-4 h-4 fill-current transition-transform group-hover:scale-125" />
+                </span>
+              </motion.button>
+            )}
           </div>
         </motion.div>
       )}

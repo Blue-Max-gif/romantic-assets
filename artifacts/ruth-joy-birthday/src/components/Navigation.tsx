@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Heart, Menu, X, ArrowUp } from 'lucide-react';
+import { siteContent } from '@/data/siteContent';
 
 const navItems = [
   { id: 'hero', label: 'Home' },
@@ -57,12 +58,14 @@ export function Navigation() {
         transition={{ delay: 0.5, duration: 0.8, ease: "easeOut" }}
       >
         <div className="container mx-auto px-6 flex items-center justify-between">
-          <div 
-            className="font-script text-2xl text-primary cursor-pointer flex items-center gap-2"
+          <button
+            type="button"
+            className="font-script text-2xl text-primary flex items-center gap-2 min-h-11"
             onClick={() => scrollTo('hero')}
+            aria-label={`Go to ${siteContent.hero.name} home`}
           >
-            <Heart className="w-5 h-5 fill-primary" /> R&W
-          </div>
+            <Heart className="w-5 h-5 fill-primary" /> {siteContent.hero.name}
+          </button>
           
           <ul className="flex items-center gap-8">
             {navItems.map((item) => (
@@ -87,11 +90,20 @@ export function Navigation() {
         </div>
       </motion.nav>
 
+      <button
+        type="button"
+        className="fixed top-4 left-4 z-50 flex min-h-12 items-center gap-2 rounded-full border border-white/10 bg-card/80 px-4 font-script text-xl text-primary shadow-lg backdrop-blur-md md:hidden"
+        onClick={() => scrollTo('hero')}
+        aria-label={`Go to ${siteContent.hero.name} home`}
+      >
+        <Heart className="h-4 w-4 fill-primary" /> {siteContent.hero.name}
+      </button>
+
       {/* Mobile Menu Toggle */}
       <div className="fixed top-4 right-4 z-50 md:hidden">
         <button 
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="w-12 h-12 flex items-center justify-center bg-card/80 backdrop-blur-md rounded-full border border-white/10 shadow-lg text-foreground focus:outline-none"
+          className="w-12 h-12 flex items-center justify-center bg-card/80 backdrop-blur-md rounded-full border border-white/10 shadow-lg text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
         >
           {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
@@ -112,7 +124,7 @@ export function Navigation() {
                 <li key={item.id}>
                   <button
                     onClick={() => scrollTo(item.id)}
-                    className={`font-serif text-xl tracking-widest uppercase transition-colors ${
+                    className={`min-h-12 px-4 font-serif text-xl tracking-widest uppercase transition-colors ${
                       activeSection === item.id ? 'text-primary' : 'text-muted-foreground'
                     }`}
                   >
@@ -133,7 +145,7 @@ export function Navigation() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.8 }}
             onClick={() => scrollTo('hero')}
-            className="fixed bottom-6 left-6 z-40 w-10 h-10 flex items-center justify-center bg-card/80 backdrop-blur-md rounded-full border border-white/10 shadow-lg text-foreground hover:bg-primary/20 hover:text-primary transition-colors focus:outline-none"
+            className="fixed bottom-6 left-6 z-40 w-12 h-12 flex items-center justify-center bg-card/80 backdrop-blur-md rounded-full border border-white/10 shadow-lg text-foreground hover:bg-primary/20 hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary"
             aria-label="Scroll to top"
           >
             <ArrowUp className="w-5 h-5" />

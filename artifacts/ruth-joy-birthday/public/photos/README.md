@@ -2,12 +2,12 @@
 
 Place your custom photos in this directory.
 
-Required files (or update `src/data/siteContent.ts` to match your own filenames):
-- `placeholder-1.jpg`
-- `placeholder-2.jpg`
-- `placeholder-3.jpg`
-- `placeholder-4.jpg`
-- `placeholder-5.jpg`
-- `placeholder-6.jpg`
+Suggested files (or update `src/data/siteContent.ts` to match your own filenames):
+- `ruth-joy-01.jpg`
+- `ruth-joy-02.jpg`
+- `ruth-joy-03.jpg`
+- `ruth-joy-04.jpg`
+- `ruth-joy-05.jpg`
+- `ruth-joy-06.jpg`
 
-For placeholders, the application uses elegantly styled CSS gradients if the images are missing, so it won't break if you don't add images immediately.
+The site intentionally starts with no relationship photos because your first in-person meeting is still ahead. Add her photos here later and the gallery will use them automatically. Missing files show a romantic fallback instead of a broken-image icon.

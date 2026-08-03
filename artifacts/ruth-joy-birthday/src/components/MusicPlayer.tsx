@@ -3,26 +3,11 @@ import { motion } from 'framer-motion';
 import { Music, Play, Pause, Volume2, VolumeX } from 'lucide-react';
 import { siteContent } from '@/data/siteContent';
 
-interface MusicPlayerProps {
-  autoPlayTriggered: boolean;
-}
-
-export function MusicPlayer({ autoPlayTriggered }: MusicPlayerProps) {
+export function MusicPlayer() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
   const [hasError, setHasError] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
-
-  useEffect(() => {
-    if (autoPlayTriggered && audioRef.current) {
-      audioRef.current.play()
-        .then(() => setIsPlaying(true))
-        .catch((err) => {
-          console.warn("Audio autoplay blocked or failed:", err);
-          setHasError(true);
-        });
-    }
-  }, [autoPlayTriggered]);
 
   const togglePlay = () => {
     if (!audioRef.current) return;
@@ -55,7 +40,7 @@ export function MusicPlayer({ autoPlayTriggered }: MusicPlayerProps) {
         ref={audioRef} 
         src={siteContent.music.path} 
         loop 
-        preload="auto"
+        preload="metadata"
         onError={() => setHasError(true)}
       />
       

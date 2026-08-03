@@ -31,16 +31,22 @@ export function WhyILoveYou() {
             return (
               <motion.div
                 key={item.id}
-                className={`relative rounded-2xl cursor-pointer transition-all duration-500 overflow-hidden ${
+                className={`relative rounded-2xl cursor-pointer transition-all duration-500 overflow-hidden min-h-[240px] focus:outline-none focus:ring-2 focus:ring-primary ${
                   isActive ? 'ring-1 ring-primary shadow-[0_0_30px_rgba(161,18,52,0.2)]' : 'border border-white/5 hover:border-white/20'
                 }`}
-                style={{ height: '240px' }}
+                role="button"
+                tabIndex={0}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 onClick={() => setActiveIndex(isActive ? null : index)}
-                onHoverStart={() => !isActive && setActiveIndex(index)}
+                onKeyDown={(event) => {
+                  if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    setActiveIndex(isActive ? null : index);
+                  }
+                }}
               >
                 {/* Default State */}
                 <div className={`absolute inset-0 glass-panel flex flex-col items-center justify-center p-8 text-center transition-opacity duration-500 z-10 ${
