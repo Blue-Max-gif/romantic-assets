@@ -55,12 +55,12 @@ export function WhyILoveYou() {
                   isActive ? 'opacity-0' : 'opacity-100'
                 }`}>
                   <span className="font-serif text-4xl text-primary/30 mb-4">{index + 1}</span>
-                  <h3 className="font-serif text-2xl text-foreground">{item.title}</h3>
+                  <h3 className="font-serif text-2xl text-foreground mb-5">{item.title}</h3>
 
-                  {/* Tap to view hint */}
-                  <div className="absolute bottom-4 left-0 right-0 flex items-center justify-center gap-1.5 text-primary/50 animate-pulse">
+                  {/* Tap to view button */}
+                  <div className="flex items-center gap-1.5 bg-primary/10 border border-primary/30 rounded-full px-4 py-1.5 text-primary shadow-sm animate-pulse">
                     <Sparkles className="w-3.5 h-3.5" />
-                    <span className="font-sans text-xs uppercase tracking-wider">Tap to view</span>
+                    <span className="font-sans text-xs font-medium uppercase tracking-wider">Tap to view</span>
                   </div>
                 </div>
 
