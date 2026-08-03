@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { siteContent } from '@/data/siteContent';
@@ -106,4 +105,3 @@ export function WhyILoveYou() {
     </section>
   );
 }
-```
