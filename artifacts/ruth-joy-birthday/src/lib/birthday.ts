@@ -1,6 +1,6 @@
 const NAIROBI_TIME_ZONE = 'Africa/Nairobi';
 const BIRTHDAY_MONTH = 7;
-const BIRTHDAY_DATE = 3;
+const BIRTHDAY_DATE = 5;
 const NAIROBI_OFFSET_HOURS = 3;
 
 export type BirthdayCountdown = {
