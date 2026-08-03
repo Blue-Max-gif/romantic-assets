@@ -8,6 +8,38 @@ export function MusicPlayer() {
   const [isMuted, setIsMuted] = useState(false);
   const [hasError, setHasError] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const hasAutoStarted = useRef(false);
+
+  const startPlayback = () => {
+    if (!audioRef.current || hasAutoStarted.current) return;
+    hasAutoStarted.current = true;
+
+    audioRef.current.play()
+      .then(() => {
+        setIsPlaying(true);
+        setHasError(false);
+      })
+      .catch((err) => {
+        console.warn("Autoplay failed:", err);
+        setHasError(true);
+        hasAutoStarted.current = false; // allow retry on next interaction
+      });
+  };
+
+  useEffect(() => {
+    const handleFirstInteraction = () => {
+      startPlayback();
+    };
+
+    // Listen for the first touch or click anywhere on the page
+    document.addEventListener('touchstart', handleFirstInteraction, { once: true });
+    document.addEventListener('click', handleFirstInteraction, { once: true });
+
+    return () => {
+      document.removeEventListener('touchstart', handleFirstInteraction);
+      document.removeEventListener('click', handleFirstInteraction);
+    };
+  }, []);
 
   const togglePlay = () => {
     if (!audioRef.current) return;
