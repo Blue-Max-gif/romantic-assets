@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { siteContent } from '@/data/siteContent';
-import { Heart, HandPointer } from 'lucide-react';
+import { Heart, Sparkles } from 'lucide-react';
 
 export function WhyILoveYou() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -13,42 +13,36 @@ export function WhyILoveYou() {
       <div className="absolute bottom-1/4 right-0 w-[400px] h-[400px] bg-secondary/5 rounded-full blur-[80px] -z-10" />
 
       <div className="container mx-auto px-6 max-w-6xl">
-        <motion.div
+        <motion.div 
           className="text-center mb-20"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="font-script text-5xl md:text-6xl text-primary mb-4">
-            {siteContent.reasons.title}
-          </h2>
-          <p className="font-serif text-muted-foreground italic">
-            Just a few of the millions of reasons.
-          </p>
+          <h2 className="font-script text-5xl md:text-6xl text-primary mb-4">{siteContent.reasons.title}</h2>
+          <p className="font-serif text-muted-foreground italic">Just a few of the millions of reasons.</p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {siteContent.reasons.items.map((item, index) => {
             const isActive = activeIndex === index;
-
+            
             return (
               <motion.div
                 key={item.id}
-                className={`relative rounded-2xl cursor-pointer select-none transition-all duration-500 overflow-hidden min-h-[240px] focus:outline-none focus:ring-2 focus:ring-primary ${
-                  isActive
-                    ? 'ring-1 ring-primary shadow-[0_0_30px_rgba(161,18,52,0.2)]'
-                    : 'border border-white/5 hover:border-white/20'
+                className={`relative rounded-2xl cursor-pointer transition-all duration-500 overflow-hidden min-h-[240px] focus:outline-none focus:ring-2 focus:ring-primary ${
+                  isActive ? 'ring-1 ring-primary shadow-[0_0_30px_rgba(161,18,52,0.2)]' : 'border border-white/5 hover:border-white/20'
                 }`}
                 role="button"
                 tabIndex={0}
+                aria-pressed={isActive}
+                aria-label={`${item.title}. Tap to ${isActive ? 'hide' : 'view'} reason`}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                onClick={() =>
-                  setActiveIndex(isActive ? null : index)
-                }
+                onClick={() => setActiveIndex(isActive ? null : index)}
                 onKeyDown={(event) => {
                   if (event.key === 'Enter' || event.key === ' ') {
                     event.preventDefault();
@@ -57,45 +51,28 @@ export function WhyILoveYou() {
                 }}
               >
                 {/* Default State */}
-                <div
-                  className={`absolute inset-0 glass-panel flex flex-col items-center justify-center p-8 text-center transition-opacity duration-500 z-10 ${
-                    isActive ? 'opacity-0' : 'opacity-100'
-                  }`}
-                >
-                  <span className="font-serif text-4xl text-primary/30 mb-4">
-                    {index + 1}
-                  </span>
+                <div className={`absolute inset-0 glass-panel flex flex-col items-center justify-center p-8 text-center transition-opacity duration-500 z-10 ${
+                  isActive ? 'opacity-0' : 'opacity-100'
+                }`}>
+                  <span className="font-serif text-4xl text-primary/30 mb-4">{index + 1}</span>
+                  <h3 className="font-serif text-2xl text-foreground">{item.title}</h3>
 
-                  <h3 className="font-serif text-2xl text-foreground mb-4">
-                    {item.title}
-                  </h3>
-
-                  {/* Tap instruction */}
-                  <div className="flex items-center gap-2 text-primary/70 text-sm uppercase tracking-widest">
-                    <HandPointer className="w-4 h-4 animate-pulse" />
-                    <span>Tap to view</span>
+                  {/* Tap to view hint */}
+                  <div className="absolute bottom-4 left-0 right-0 flex items-center justify-center gap-1.5 text-primary/50 animate-pulse">
+                    <Sparkles className="w-3.5 h-3.5" />
+                    <span className="font-sans text-xs uppercase tracking-wider">Tap to view</span>
                   </div>
                 </div>
 
-                {/* Open State */}
-                <div
-                  className={`absolute inset-0 bg-primary/95 backdrop-blur-sm flex flex-col items-center justify-center p-8 text-center transition-opacity duration-500 z-20 ${
-                    isActive ? 'opacity-100' : 'opacity-0 pointer-events-none'
-                  }`}
-                >
-                  <Heart className="w-8 h-8 text-white/30 mb-4 fill-current" />
-
-                  <h3 className="font-serif text-xl text-white mb-4">
-                    {item.title}
-                  </h3>
-
+                {/* Active/Hover State */}
+                <div className={`absolute inset-0 bg-primary/95 backdrop-blur-sm flex flex-col items-center justify-center p-8 text-center transition-opacity duration-500 z-20 ${
+                  isActive ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                }`}>
+                  <Heart className="w-8 h-8 text-white/20 mb-4 fill-current" />
+                  <h3 className="font-serif text-xl text-white mb-4">{item.title}</h3>
                   <p className="font-sans font-light text-white/90 leading-relaxed text-sm md:text-base">
                     {item.text}
                   </p>
-
-                  <span className="mt-6 text-white/50 text-xs uppercase tracking-widest">
-                    Tap again to close
-                  </span>
                 </div>
               </motion.div>
             );
