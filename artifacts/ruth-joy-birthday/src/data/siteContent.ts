@@ -30,7 +30,7 @@ export const siteContent = {
       {
         id: 1,
         date: "Where it began",
-        title: "When We Found Each Other Online",
+        title: "When We Found Each Other",
         description: "Two people, one unexpected connection, and conversations that made distance feel a little smaller.",
         icon: "message",
       },
